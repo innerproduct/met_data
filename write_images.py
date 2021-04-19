@@ -17,7 +17,7 @@ for pdf in sorted(pdfs):
   with tempfile.TemporaryDirectory() as path:
     images_from_path = convert_from_path(pdf, output_folder=path, fmt='jpeg')
     for i,image in enumerate(images_from_path):
-      outfilename = pdf.replace('.pdf','_'+str(i)+'.png') 
+      outfilename = pdf.replace('.pdf','_'+str(i).zfill(4)+'.jpg') 
       image.save(os.path.join(outdir, outfilename))
       print(outfilename, 'saved!')
 
